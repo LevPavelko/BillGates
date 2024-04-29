@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
 class Quote {
   quote: string;
   
@@ -23,7 +23,7 @@ class Quote {
             
 })
 export class QuotesComponent {
-  @Input() quote:string;
+  
   newQuote: string;
 
   quotes: Quote[] =

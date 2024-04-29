@@ -1,6 +1,8 @@
 ﻿// Директива import импортирует функциональность модуля angular/core,
 // предоставляя доступ к функции декоратора @Component.
-import { Component } from "@angular/core";
+import { Component,ViewChild } from "@angular/core";
+import { LinksComponent } from './links.component'; 
+import { QuotesComponent }   from './quotes.component';
 
 // Функция-декоратор @Component ассоциирует метаданные с классом компонента AppComponent.
 // Декоратор @Component позволяет идентифицировать класс AppComponent как компонент.
@@ -8,15 +10,18 @@ import { Component } from "@angular/core";
   selector: 'my-app',
     template: `<div>
                 <bio-comp></bio-comp>
-                <quotes-comp></quotes-comp>
-                <links-comp></links-comp>
-              
+                <quotes-comp #quotesComponent></quotes-comp>
+                <links-comp #linksComponent></links-comp>
+               
               </div>`,
              
   styleUrls: ['./app.style.css']
 })
 
-// Экспортируется класс компонента AppComponent, в котором определяется модель name.
+
 export class AppComponent {
-  name = "";
+  @ViewChild('linksComponent') linksComponent: LinksComponent;
+  @ViewChild('quotesComponent') quatesComponent: QuotesComponent;
+
+  
 }
