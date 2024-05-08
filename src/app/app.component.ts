@@ -9,19 +9,28 @@ import { QuotesComponent }   from './quotes.component';
 @Component({
   selector: 'my-app',
     template: `<div>
-                <bio-comp></bio-comp>
-                <quotes-comp #quotesComponent></quotes-comp>
-                <links-comp #linksComponent></links-comp>
+
+                <input type="button" id="quotes" (click)="setPart($event)" value="Quotes" class="submitButton">
+                <input type="button" id="links" (click)="setPart($event)" value="Links" class="submitButton">
+                <input type="button" id="bio" (click)="setPart($event)" value="Biography" class="submitButton">
+                <div [ngSwitch]="part">
+                <ng-template ngSwitchCase="quotes"><quotes-comp></quotes-comp></ng-template>
+                <ng-template ngSwitchCase="links"><links-comp></links-comp></ng-template>
                
-              </div>`,
+                
+                <ng-template ngSwitchDefault><bio-comp></bio-comp></ng-template>
+                </div>`,
              
   styleUrls: ['./app.style.css']
 })
 
 
 export class AppComponent {
-  @ViewChild('linksComponent') linksComponent: LinksComponent;
-  @ViewChild('quotesComponent') quatesComponent: QuotesComponent;
 
-  
+  part: string = "bio";
+
+  setPart(event: any) {
+    this.part = event.target.id;
+  }
+
 }
