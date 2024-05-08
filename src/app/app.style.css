@@ -38,3 +38,29 @@ li{
     border-bottom: 3px solid #0509e9;
     box-sizing: border-box;
 }
+
+.submitButton {
+  position: sticky;
+  /* top: 20px; */
+   /* bottom: 32px;  */
+  padding: 10px;
+  background-color: #180B85;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 18px;
+  box-shadow: 0 0 10px -5px #60a7e0;
+  transition: all 0.1s;
+  margin: 15px;
+  
+  
+}
+
+  .submitButton:hover {
+      bottom: 31px;
+      font-size: 20px;
+      background-color: #1a64b9;
+      transition: all 0.1s;
+      box-shadow: 0 0 20px -2px #539bec;
+  }
